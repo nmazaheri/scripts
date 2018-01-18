@@ -1,0 +1,17 @@
+#!/bin/bash
+
+destinationPath="/private/etc/hosts"
+sourcePath=$destinationPath"."
+
+case "$1" in
+    hidden)
+        sourcePath+=$1
+        echo "Now using the hidden hosts file"
+        ;;
+    *)
+        sourcePath+="default"
+        echo "Now using the default hosts file"
+        ;;
+esac
+
+cp $sourcePath $destinationPath
